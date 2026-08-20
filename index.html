@@ -40,8 +40,158 @@ Independent Useful Links Directory • Not a Government Website
 </div>
 
 <section class="hero">
-  <img src="assets/sld-useful-links-logo.png" alt="SLD Useful Links Logo"
-       style="width:min(250px,70vw);height:auto;border-radius:28px;box-shadow:0 12px 36px rgba(0,0,0,.35);margin-bottom:14px;">
+  <h1>SLD Useful Links</h1>
+  <p class="te-only">100+ ప్రభుత్వ & ఉపయోగకరమైన వెబ్‌సైట్లు — ఒకే చోట</p>
+  <p class="en-only">100+ Government & Useful Websites — One Place</p>
+</section>
+
+<main class="wrap">
+  <div class="toolbar">
+    <input id="q" class="search" placeholder="Aadhaar, Jobs, MeeBhoomi..." oninput="render()">
+    <button class="iconbtn" onclick="toggleLang()" title="Telugu / English">అ/EN</button>
+    <button class="iconbtn" onclick="toggleDark()" title="Dark mode">🌙</button>
+  </div>
+
+  <div class="stats">
+    <span id="count"></span>
+    <button class="chip" onclick="sharePage()">↗ Share</button>
+  </div>
+
+  <div class="chips" id="chips"></div>
+  <section class="grid" id="grid"></section>
+  <div class="empty" id="empty">No matching websites found.</div>
+
+  <div class="ad">ADVERTISEMENT SPACE — Google AdSense / Sponsor Banner</div>
+
+  <div class="notice">
+    <strong>⚠️ Disclaimer:</strong>
+    <span class="te-only">SLD Useful Links ఒక స్వతంత్ర లింక్ డైరెక్టరీ మాత్రమే; ఇది Government website కాదు. వ్యక్తిగత వివరాలు లేదా payment details ఇవ్వడానికి ముందు URL/domainని తప్పకుండా verify చేయండి. ప్రభుత్వ portals URLs/availability కాలానుగుణంగా మారవచ్చు.</span>
+    <span class="en-only">SLD Useful Links is an independent directory, not a Government website. Always verify the URL/domain before entering personal or payment details. Government portal URLs and availability can change over time.</span>
+  </div>
+</main>
+
+
+<section style="max-width:1180px;margin:18px auto;padding:0 14px 30px;">
+  <div class="notice">
+    <strong>Government Affiliation:</strong>
+    SLD Useful Links is an independent link directory. It is not affiliated with, endorsed by,
+    or officially connected with the Government of India, Government of Andhra Pradesh,
+    or any Government department. Government services are accessed on their respective external websites.
+  </div>
+  <div class="notice">
+    <strong>Privacy:</strong>
+    This website does not ask users to enter Aadhaar numbers, PAN numbers, OTPs, passwords or banking credentials.
+    External websites have their own privacy policies and terms.
+  </div>
+  <div class="notice">
+    <strong>Safety:</strong>
+    Always verify the destination domain before submitting personal information or making a payment.
+    Government portal URLs, fees, eligibility rules and availability may change.
+  </div>
+</section>
+
+<footer>© 2026 SLD Useful Links • Feel the Entertainment</footer>
+
+<script>
+const DATA = [{"name": "Aadhaar / UIDAI", "te": "ఆధార్ సేవలు", "url": "https://uidai.gov.in/", "cat": "identity", "icon": "🪪", "keywords": "Aadhaar update download verify"}, {"name": "myAadhaar", "te": "ఆధార్ ఆన్‌లైన్ సేవలు", "url": "https://myaadhaar.uidai.gov.in/", "cat": "identity", "icon": "🪪", "keywords": "aadhaar download update pvc"}, {"name": "Passport Seva", "te": "పాస్‌పోర్ట్ సేవలు", "url": "https://www.passportindia.gov.in/", "cat": "identity", "icon": "🛂", "keywords": "passport appointment status"}, {"name": "Voters' Services", "te": "ఓటర్ సేవలు", "url": "https://voters.eci.gov.in/", "cat": "identity", "icon": "🗳️", "keywords": "voter id election epic"}, {"name": "Election Commission", "te": "ఎన్నికల కమిషన్", "url": "https://www.eci.gov.in/", "cat": "central", "icon": "🏛️", "keywords": "election results commission"}, {"name": "PAN / Income Tax", "te": "ఇన్‌కమ్ ట్యాక్స్ & PAN", "url": "https://www.incometax.gov.in/", "cat": "finance", "icon": "💳", "keywords": "pan tax itr income"}, {"name": "Protean PAN", "te": "PAN సేవలు", "url": "https://www.protean-tinpan.com/", "cat": "finance", "icon": "💳", "keywords": "pan tin nsdl"}, {"name": "UTIITSL PAN", "te": "PAN సేవలు", "url": "https://www.pan.utiitsl.com/", "cat": "finance", "icon": "💳", "keywords": "pan uti"}, {"name": "DigiLocker", "te": "డిజిటల్ డాక్యుమెంట్స్", "url": "https://www.digilocker.gov.in/", "cat": "identity", "icon": "📁", "keywords": "documents certificates"}, {"name": "UMANG", "te": "ప్రభుత్వ సేవలు ఒకేచోట", "url": "https://web.umang.gov.in/", "cat": "central", "icon": "📱", "keywords": "government services"}, {"name": "India.gov.in", "te": "నేషనల్ పోర్టల్", "url": "https://www.india.gov.in/", "cat": "central", "icon": "🇮🇳", "keywords": "india government portal"}, {"name": "National Govt Services", "te": "ప్రభుత్వ సేవల శోధన", "url": "https://services.india.gov.in/", "cat": "central", "icon": "🔎", "keywords": "government services search"}, {"name": "MyScheme", "te": "ప్రభుత్వ పథకాలు", "url": "https://www.myscheme.gov.in/", "cat": "schemes", "icon": "🎯", "keywords": "schemes eligibility"}, {"name": "CPGRAMS", "te": "కేంద్ర ప్రభుత్వ ఫిర్యాదులు", "url": "https://pgportal.gov.in/", "cat": "central", "icon": "📣", "keywords": "grievance complaint"}, {"name": "RTI Online", "te": "RTI దరఖాస్తు", "url": "https://rtionline.gov.in/", "cat": "central", "icon": "📄", "keywords": "rti information"}, {"name": "PIB", "te": "ప్రభుత్వ వార్తలు", "url": "https://www.pib.gov.in/", "cat": "central", "icon": "📰", "keywords": "press government news"}, {"name": "eGazette India", "te": "గెజిట్ నోటిఫికేషన్లు", "url": "https://egazette.nic.in/", "cat": "central", "icon": "📜", "keywords": "gazette notifications"}, {"name": "GeM", "te": "Government e-Marketplace", "url": "https://gem.gov.in/", "cat": "business", "icon": "🛒", "keywords": "government marketplace tender"}, {"name": "eProcure", "te": "కేంద్ర టెండర్లు", "url": "https://eprocure.gov.in/", "cat": "business", "icon": "📑", "keywords": "tenders procurement"}, {"name": "GST Portal", "te": "GST సేవలు", "url": "https://www.gst.gov.in/", "cat": "finance", "icon": "🧾", "keywords": "gst returns registration"}, {"name": "EPFO", "te": "PF సేవలు", "url": "https://www.epfindia.gov.in/", "cat": "finance", "icon": "💼", "keywords": "pf epf pension"}, {"name": "EPFO Member Portal", "te": "PF Member సేవలు", "url": "https://unifiedportal-mem.epfindia.gov.in/", "cat": "finance", "icon": "💼", "keywords": "uan pf member"}, {"name": "ESIC", "te": "ESI సేవలు", "url": "https://www.esic.gov.in/", "cat": "health", "icon": "🏥", "keywords": "esi insurance employee"}, {"name": "NPS", "te": "National Pension System", "url": "https://www.npscra.nsdl.co.in/", "cat": "finance", "icon": "👴", "keywords": "nps pension"}, {"name": "Pensioners Portal", "te": "పెన్షన్ సమాచారం", "url": "https://pensionersportal.gov.in/", "cat": "finance", "icon": "👴", "keywords": "pension retirement"}, {"name": "Jeevan Pramaan", "te": "Digital Life Certificate", "url": "https://jeevanpramaan.gov.in/", "cat": "finance", "icon": "✅", "keywords": "life certificate pension"}, {"name": "RBI", "te": "Reserve Bank of India", "url": "https://www.rbi.org.in/", "cat": "finance", "icon": "🏦", "keywords": "bank rbi"}, {"name": "SBI", "te": "State Bank of India", "url": "https://sbi.co.in/", "cat": "finance", "icon": "🏦", "keywords": "bank sbi"}, {"name": "NPCI", "te": "UPI / Payments", "url": "https://www.npci.org.in/", "cat": "finance", "icon": "💸", "keywords": "upi payments rupay"}, {"name": "Bharat Connect", "te": "Bill Payments", "url": "https://www.bharat-connect.com/", "cat": "finance", "icon": "💡", "keywords": "bbps bills"}, {"name": "PM Jan Dhan", "te": "జన్ ధన్ యోజన", "url": "https://pmjdy.gov.in/", "cat": "schemes", "icon": "🏦", "keywords": "jan dhan bank"}, {"name": "PM Kisan", "te": "రైతు సహాయం", "url": "https://pmkisan.gov.in/", "cat": "agriculture", "icon": "🌾", "keywords": "farmer kisan"}, {"name": "eNAM", "te": "వ్యవసాయ మార్కెట్", "url": "https://www.enam.gov.in/", "cat": "agriculture", "icon": "🌾", "keywords": "agriculture market mandi"}, {"name": "Agricoop", "te": "వ్యవసాయ శాఖ", "url": "https://agriwelfare.gov.in/", "cat": "agriculture", "icon": "🚜", "keywords": "agriculture ministry"}, {"name": "Soil Health Card", "te": "సాయిల్ హెల్త్ కార్డ్", "url": "https://soilhealth.dac.gov.in/", "cat": "agriculture", "icon": "🌱", "keywords": "soil farmer"}, {"name": "PMFBY", "te": "పంట బీమా", "url": "https://pmfby.gov.in/", "cat": "agriculture", "icon": "🌾", "keywords": "crop insurance"}, {"name": "Kisan Call Centre", "te": "రైతు సమాచారం", "url": "https://mkisan.gov.in/", "cat": "agriculture", "icon": "📞", "keywords": "farmer advisory"}, {"name": "National Scholarship Portal", "te": "స్కాలర్‌షిప్స్", "url": "https://scholarships.gov.in/", "cat": "education", "icon": "🎓", "keywords": "student scholarship"}, {"name": "NTA", "te": "ఎంట్రన్స్ పరీక్షలు", "url": "https://nta.ac.in/", "cat": "education", "icon": "📝", "keywords": "jee neet cuet exams"}, {"name": "JEE Main", "te": "JEE Main", "url": "https://jeemain.nta.nic.in/", "cat": "education", "icon": "📚", "keywords": "engineering exam"}, {"name": "NEET", "te": "NEET", "url": "https://neet.nta.nic.in/", "cat": "education", "icon": "🩺", "keywords": "medical entrance"}, {"name": "CUET", "te": "CUET", "url": "https://exams.nta.ac.in/CUET-UG/", "cat": "education", "icon": "🎓", "keywords": "cuet university"}, {"name": "CBSE", "te": "CBSE", "url": "https://www.cbse.gov.in/", "cat": "education", "icon": "🏫", "keywords": "school cbse"}, {"name": "NCERT", "te": "NCERT", "url": "https://ncert.nic.in/", "cat": "education", "icon": "📚", "keywords": "books education"}, {"name": "ePathshala", "te": "డిజిటల్ పాఠ్యపుస్తకాలు", "url": "https://epathshala.nic.in/", "cat": "education", "icon": "📖", "keywords": "books school"}, {"name": "SWAYAM", "te": "ఆన్‌లైన్ కోర్సులు", "url": "https://swayam.gov.in/", "cat": "education", "icon": "💻", "keywords": "online courses"}, {"name": "AICTE", "te": "టెక్నికల్ ఎడ్యుకేషన్", "url": "https://www.aicte-india.org/", "cat": "education", "icon": "🎓", "keywords": "engineering colleges"}, {"name": "UGC", "te": "University Grants Commission", "url": "https://www.ugc.gov.in/", "cat": "education", "icon": "🏛️", "keywords": "universities"}, {"name": "AISHE", "te": "Higher Education Data", "url": "https://aishe.gov.in/", "cat": "education", "icon": "📊", "keywords": "college data"}, {"name": "Skill India", "te": "స్కిల్ ట్రైనింగ్", "url": "https://www.skillindia.gov.in/", "cat": "jobs", "icon": "🛠️", "keywords": "skills training"}, {"name": "Apprenticeship India", "te": "అప్రెంటిస్‌షిప్", "url": "https://www.apprenticeshipindia.gov.in/", "cat": "jobs", "icon": "👷", "keywords": "apprenticeship jobs"}, {"name": "National Career Service", "te": "ఉద్యోగాలు", "url": "https://www.ncs.gov.in/", "cat": "jobs", "icon": "💼", "keywords": "jobs career"}, {"name": "UPSC", "te": "కేంద్ర ఉద్యోగ పరీక్షలు", "url": "https://upsc.gov.in/", "cat": "jobs", "icon": "📝", "keywords": "civil services jobs"}, {"name": "SSC", "te": "SSC ఉద్యోగాలు", "url": "https://ssc.gov.in/", "cat": "jobs", "icon": "🧑‍💼", "keywords": "staff selection jobs"}, {"name": "IBPS", "te": "Bank Exams", "url": "https://www.ibps.in/", "cat": "jobs", "icon": "🏦", "keywords": "bank jobs"}, {"name": "Employment News", "te": "ఉద్యోగ వార్తలు", "url": "https://employmentnews.gov.in/", "cat": "jobs", "icon": "📰", "keywords": "jobs recruitment"}, {"name": "Indian Railways", "te": "రైల్వే సమాచారం", "url": "https://indianrailways.gov.in/", "cat": "travel", "icon": "🚆", "keywords": "railway train"}, {"name": "IRCTC", "te": "రైలు టికెట్లు", "url": "https://www.irctc.co.in/", "cat": "travel", "icon": "🎫", "keywords": "train booking"}, {"name": "NTES", "te": "Train Running Status", "url": "https://enquiry.indianrail.gov.in/", "cat": "travel", "icon": "🚆", "keywords": "train status"}, {"name": "Air India", "te": "విమాన సేవలు", "url": "https://www.airindia.com/", "cat": "travel", "icon": "✈️", "keywords": "flight"}, {"name": "AAI", "te": "Airports Authority", "url": "https://www.aai.aero/", "cat": "travel", "icon": "🛫", "keywords": "airport"}, {"name": "Parivahan", "te": "వాహన సేవలు", "url": "https://parivahan.gov.in/", "cat": "transport", "icon": "🚗", "keywords": "driving licence vehicle"}, {"name": "Vahan", "te": "వాహన సేవలు", "url": "https://vahan.parivahan.gov.in/", "cat": "transport", "icon": "🚘", "keywords": "vehicle rc"}, {"name": "Sarathi", "te": "Driving Licence", "url": "https://sarathi.parivahan.gov.in/", "cat": "transport", "icon": "🪪", "keywords": "driving licence"}, {"name": "FASTag / IHMCL", "te": "FASTag సమాచారం", "url": "https://ihmcl.co.in/", "cat": "transport", "icon": "🛣️", "keywords": "fastag toll"}, {"name": "NHAI", "te": "జాతీయ రహదారులు", "url": "https://nhai.gov.in/", "cat": "transport", "icon": "🛣️", "keywords": "highways"}, {"name": "ABHA", "te": "ఆయుష్మాన్ భారత్ హెల్త్ అకౌంట్", "url": "https://abha.abdm.gov.in/", "cat": "health", "icon": "❤️", "keywords": "health id abha"}, {"name": "Ayushman Bharat PM-JAY", "te": "ఆరోగ్య బీమా", "url": "https://pmjay.gov.in/", "cat": "health", "icon": "🏥", "keywords": "health insurance"}, {"name": "CoWIN", "te": "Vaccination Services", "url": "https://www.cowin.gov.in/", "cat": "health", "icon": "💉", "keywords": "vaccine certificate"}, {"name": "eSanjeevani", "te": "ఆన్‌లైన్ డాక్టర్", "url": "https://esanjeevani.mohfw.gov.in/", "cat": "health", "icon": "🩺", "keywords": "telemedicine doctor"}, {"name": "MoHFW", "te": "ఆరోగ్య మంత్రిత్వ శాఖ", "url": "https://www.mohfw.gov.in/", "cat": "health", "icon": "🏥", "keywords": "health ministry"}, {"name": "Jan Aushadhi", "te": "తక్కువ ధర మందులు", "url": "https://janaushadhi.gov.in/", "cat": "health", "icon": "💊", "keywords": "generic medicine"}, {"name": "ORS", "te": "Hospital Appointments", "url": "https://ors.gov.in/", "cat": "health", "icon": "📅", "keywords": "hospital appointment"}, {"name": "India Post", "te": "పోస్ట్ సేవలు", "url": "https://www.indiapost.gov.in/", "cat": "useful", "icon": "📮", "keywords": "post parcel speed post"}, {"name": "India Post Payments Bank", "te": "IPPB", "url": "https://www.ippbonline.com/", "cat": "finance", "icon": "🏦", "keywords": "postal bank"}, {"name": "Sanchar Saathi", "te": "మొబైల్ భద్రత", "url": "https://sancharsaathi.gov.in/", "cat": "useful", "icon": "📱", "keywords": "lost mobile sim"}, {"name": "TRAI", "te": "టెలికాం సమాచారం", "url": "https://www.trai.gov.in/", "cat": "useful", "icon": "📡", "keywords": "telecom"}, {"name": "Cyber Crime Portal", "te": "సైబర్ క్రైమ్ ఫిర్యాదు", "url": "https://cybercrime.gov.in/", "cat": "safety", "icon": "🛡️", "keywords": "cyber crime complaint"}, {"name": "CERT-In", "te": "Cyber Security", "url": "https://www.cert-in.org.in/", "cat": "safety", "icon": "🔐", "keywords": "cyber security"}, {"name": "National Consumer Helpline", "te": "వినియోగదారుల ఫిర్యాదులు", "url": "https://consumerhelpline.gov.in/", "cat": "safety", "icon": "📞", "keywords": "consumer complaint"}, {"name": "eDaakhil", "te": "Consumer Case Filing", "url": "https://edaakhil.nic.in/", "cat": "safety", "icon": "⚖️", "keywords": "consumer court"}, {"name": "eCourts", "te": "కోర్టు కేసు స్థితి", "url": "https://ecourts.gov.in/", "cat": "legal", "icon": "⚖️", "keywords": "court case"}, {"name": "Supreme Court of India", "te": "సుప్రీంకోర్టు", "url": "https://www.sci.gov.in/", "cat": "legal", "icon": "⚖️", "keywords": "supreme court"}, {"name": "India Code", "te": "భారత చట్టాలు", "url": "https://www.indiacode.nic.in/", "cat": "legal", "icon": "📚", "keywords": "acts laws"}, {"name": "NALSA", "te": "ఉచిత న్యాయ సహాయం", "url": "https://nalsa.gov.in/", "cat": "legal", "icon": "🤝", "keywords": "legal aid"}, {"name": "MCA", "te": "Company Services", "url": "https://www.mca.gov.in/", "cat": "business", "icon": "🏢", "keywords": "company registration"}, {"name": "Udyam Registration", "te": "MSME Registration", "url": "https://udyamregistration.gov.in/", "cat": "business", "icon": "🏭", "keywords": "msme udyam"}, {"name": "Startup India", "te": "స్టార్టప్ సేవలు", "url": "https://www.startupindia.gov.in/", "cat": "business", "icon": "🚀", "keywords": "startup business"}, {"name": "DGFT", "te": "Import Export", "url": "https://www.dgft.gov.in/", "cat": "business", "icon": "🌐", "keywords": "iec export import"}, {"name": "IP India", "te": "Trademark / Patent", "url": "https://ipindia.gov.in/", "cat": "business", "icon": "™️", "keywords": "trademark patent"}, {"name": "FSSAI", "te": "Food Licence", "url": "https://www.fssai.gov.in/", "cat": "business", "icon": "🍽️", "keywords": "food licence"}, {"name": "FoSCoS", "te": "FSSAI Registration", "url": "https://foscos.fssai.gov.in/", "cat": "business", "icon": "🥗", "keywords": "food registration"}, {"name": "PMEGP", "te": "Business Loan Scheme", "url": "https://www.kviconline.gov.in/pmegpeportal/", "cat": "schemes", "icon": "💼", "keywords": "loan business"}, {"name": "Mudra", "te": "MUDRA Loans", "url": "https://www.mudra.org.in/", "cat": "schemes", "icon": "💰", "keywords": "loan business"}, {"name": "National Portal for Senior Citizens", "te": "Senior Citizen సమాచారం", "url": "https://seniorcitizens.gov.in/", "cat": "schemes", "icon": "👵", "keywords": "senior citizen"}, {"name": "Sukanya Samriddhi", "te": "Post Office Savings", "url": "https://www.indiapost.gov.in/Financial/Pages/Content/Post-Office-Saving-Schemes.aspx", "cat": "schemes", "icon": "👧", "keywords": "savings sukanya"}, {"name": "PMAY Urban", "te": "గృహ పథకం", "url": "https://pmay-urban.gov.in/", "cat": "schemes", "icon": "🏠", "keywords": "housing urban"}, {"name": "PMAY Gramin", "te": "గ్రామీణ గృహ పథకం", "url": "https://pmayg.nic.in/", "cat": "schemes", "icon": "🏡", "keywords": "housing rural"}, {"name": "Jal Jeevan Mission", "te": "తాగునీటి పథకం", "url": "https://jaljeevanmission.gov.in/", "cat": "schemes", "icon": "💧", "keywords": "water"}, {"name": "Swachh Bharat Mission", "te": "స్వచ్ఛ భారత్", "url": "https://swachhbharatmission.gov.in/", "cat": "schemes", "icon": "🧹", "keywords": "sanitation"}, {"name": "IMD", "te": "వాతావరణ సమాచారం", "url": "https://mausam.imd.gov.in/", "cat": "useful", "icon": "🌦️", "keywords": "weather rain cyclone"}, {"name": "NDMA", "te": "విపత్తు నిర్వహణ", "url": "https://ndma.gov.in/", "cat": "safety", "icon": "⚠️", "keywords": "disaster"}, {"name": "Bhuvan", "te": "ISRO Maps", "url": "https://bhuvan.nrsc.gov.in/", "cat": "useful", "icon": "🗺️", "keywords": "maps satellite"}, {"name": "ISRO", "te": "భారత అంతరిక్ష సంస్థ", "url": "https://www.isro.gov.in/", "cat": "useful", "icon": "🚀", "keywords": "space"}, {"name": "AP Government", "te": "ఆంధ్రప్రదేశ్ ప్రభుత్వం", "url": "https://www.ap.gov.in/", "cat": "ap", "icon": "🏛️", "keywords": "andhra pradesh government"}, {"name": "AP Seva", "te": "AP ప్రభుత్వ సేవలు", "url": "https://apseva.ap.gov.in/", "cat": "ap", "icon": "📋", "keywords": "ap seva certificates"}, {"name": "GSWS", "te": "గ్రామ/వార్డు సచివాలయం", "url": "https://gramawardsachivalayam.ap.gov.in/", "cat": "ap", "icon": "🏘️", "keywords": "sachivalayam services"}, {"name": "AP PGRS", "te": "ప్రజా ఫిర్యాదులు", "url": "https://pgrs.ap.gov.in/", "cat": "ap", "icon": "📣", "keywords": "ap grievance"}, {"name": "AP MeeSeva", "te": "మీ సేవ", "url": "https://ap.meeseva.gov.in/", "cat": "ap", "icon": "🖥️", "keywords": "meeseva certificates"}, {"name": "APPSC", "te": "AP ప్రభుత్వ ఉద్యోగాలు", "url": "https://portal-psc.ap.gov.in/", "cat": "ap", "icon": "📝", "keywords": "appsc jobs exams"}, {"name": "AP Finance", "te": "ఆర్థిక శాఖ", "url": "https://finance.ap.gov.in/", "cat": "ap", "icon": "💰", "keywords": "ap finance"}, {"name": "AP Treasury", "te": "Treasury Services", "url": "https://treasury.ap.gov.in/", "cat": "ap", "icon": "💼", "keywords": "treasury"}, {"name": "AP CFMS", "te": "CFMS", "url": "https://cfms.ap.gov.in/", "cat": "ap", "icon": "💳", "keywords": "cfms payroll"}, {"name": "AP School Education", "te": "పాఠశాల విద్య", "url": "https://cse.ap.gov.in/", "cat": "ap", "icon": "🏫", "keywords": "school education ap"}, {"name": "BIEAP", "te": "Intermediate Education", "url": "https://bie.ap.gov.in/", "cat": "ap", "icon": "🎓", "keywords": "intermediate ap"}, {"name": "APSCHE", "te": "Higher Education", "url": "https://apsche.ap.gov.in/", "cat": "ap", "icon": "🎓", "keywords": "higher education ap"}, {"name": "AP EAPCET", "te": "EAPCET", "url": "https://cets.apsche.ap.gov.in/", "cat": "ap", "icon": "📝", "keywords": "eapcet ecet icet"}, {"name": "AP SBTET", "te": "Polytechnic", "url": "https://sbtetap.gov.in/", "cat": "ap", "icon": "🛠️", "keywords": "polytechnic diploma"}, {"name": "AP Skill Development", "te": "స్కిల్ డెవలప్‌మెంట్", "url": "https://www.apssdc.in/", "cat": "ap", "icon": "🧑‍🏭", "keywords": "skills jobs"}, {"name": "AP Agriculture", "te": "వ్యవసాయ శాఖ", "url": "https://apagrisnet.gov.in/", "cat": "ap", "icon": "🌾", "keywords": "agriculture ap"}, {"name": "AP Civil Supplies", "te": "రేషన్ / పౌర సరఫరాలు", "url": "https://civilsupplies.ap.gov.in/", "cat": "ap", "icon": "🍚", "keywords": "ration civil supplies"}, {"name": "AP ePDS", "te": "రేషన్ కార్డు సేవలు", "url": "https://epdsap.ap.gov.in/", "cat": "ap", "icon": "🪪", "keywords": "ration card"}, {"name": "MeeBhoomi", "te": "భూమి రికార్డులు", "url": "https://meebhoomi.ap.gov.in/", "cat": "ap", "icon": "🌍", "keywords": "land records adangal 1b"}, {"name": "AP Registration", "te": "రిజిస్ట్రేషన్ & స్టాంప్స్", "url": "https://registration.ap.gov.in/", "cat": "ap", "icon": "📜", "keywords": "property registration ec"}, {"name": "AP CDMA", "te": "మున్సిపల్ సేవలు", "url": "https://cdma.ap.gov.in/", "cat": "ap", "icon": "🏙️", "keywords": "municipal tax"}, {"name": "AP Panchayat Raj", "te": "పంచాయతీరాజ్", "url": "https://pr.ap.gov.in/", "cat": "ap", "icon": "🏘️", "keywords": "panchayat"}, {"name": "APSRTC", "te": "బస్ టికెట్లు", "url": "https://www.apsrtconline.in/", "cat": "ap", "icon": "🚌", "keywords": "bus booking"}, {"name": "APSPDCL", "te": "దక్షిణ విద్యుత్", "url": "https://www.apspdcl.in/", "cat": "ap", "icon": "⚡", "keywords": "electricity bill"}, {"name": "APEPDCL", "te": "తూర్పు విద్యుత్", "url": "https://www.apeasternpower.com/", "cat": "ap", "icon": "⚡", "keywords": "electricity bill"}, {"name": "APCPDCL", "te": "సెంట్రల్ పవర్", "url": "https://www.apcpdcl.in/", "cat": "ap", "icon": "⚡", "keywords": "electricity"}, {"name": "AP Police", "te": "ఆంధ్రప్రదేశ్ పోలీస్", "url": "https://citizen.appolice.gov.in/", "cat": "ap", "icon": "👮", "keywords": "police citizen"}, {"name": "AP State Election Commission", "te": "స్థానిక ఎన్నికలు", "url": "https://sec.ap.gov.in/", "cat": "ap", "icon": "🗳️", "keywords": "local election"}];
+const CAT = {
+ all:["అన్నీ","All"],
+ central:["కేంద్ర ప్రభుత్వం","Central Govt"],
+ ap:["AP ప్రభుత్వం","AP Govt"],
+ identity:["ID సేవలు","ID Services"],
+ schemes:["పథకాలు","Schemes"],
+ jobs:["ఉద్యోగాలు","Jobs"],
+ education:["విద్య","Education"],
+ agriculture:["వ్యవసాయం","Agriculture"],
+ health:["ఆరోగ్యం","Health"],
+ finance:["ఫైనాన్స్","Finance"],
+ travel:["ప్రయాణం","Travel"],
+ transport:["వాహనాలు","Transport"],
+ business:["బిజినెస్","Business"],
+ legal:["న్యాయం","Legal"],
+ safety:["భద్రత","Safety"],
+ useful:["ఇతర ఉపయోగకరమైనవి","Useful"]
+};
+let cat="all", lang="te";
+
+function initChips(){
+ const box=document.getElementById("chips");
+ box.innerHTML=Object.entries(CAT).map(([k,v])=>`<button class="chip ${k==="all"?"active":""}" data-cat="${k}" onclick="setCat('${k}',this)">${v[0]}</button>`).join("");
+}
+function setCat(k,el){
+ cat=k; document.querySelectorAll("#chips .chip").forEach(x=>x.classList.remove("active")); el.classList.add("active"); render();
+}
+function esc(s){return String(s).replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[m]));}
+function render(){
+ const query=document.getElementById("q").value.toLowerCase().trim();
+ const out=DATA.filter(x=>(cat==="all"||x.cat===cat) && (!query || (x.name+" "+x.te+" "+x.keywords+" "+x.cat).toLowerCase().includes(query)));
+ document.getElementById("grid").innerHTML=out.map(x=>`
+ <article class="card">
+   <div class="top"><div class="emoji">${esc(x.icon)}</div><div><h3>${esc(x.name)}</h3><div class="te">${esc(lang==="te"?x.te:(CAT[x.cat]?.[1]||x.cat))}</div></div></div>
+   <span class="badge">✓ ${lang==="te"?"Official / Useful Link":"Official / Useful Link"}</span>
+   <a href="${esc(x.url)}" target="_blank" rel="noopener noreferrer">${lang==="te"?"వెబ్‌సైట్ ఓపెన్ చేయండి":"Open Website"}</a>
+ </article>`).join("");
+ document.getElementById("count").textContent = lang==="te" ? `${out.length} వెబ్‌సైట్లు చూపిస్తున్నాం` : `${out.length} websites shown`;
+ document.getElementById("empty").style.display=out.length?"none":"block";
+}
+function toggleDark(){document.body.classList.toggle("dark"); localStorage.setItem("sldDark",document.body.classList.contains("dark")?"1":"0")}
+function toggleLang(){
+ lang=lang==="te"?"en":"te"; document.body.classList.toggle("lang-te",lang==="te");document.body.classList.toggle("lang-en",lang==="en");
+ document.querySelectorAll("#chips .chip").forEach(b=>{let k=b.dataset.cat;b.textContent=CAT[k][lang==="te"?0:1]});
+ render();
+}
+async function sharePage(){
+ const text="SLD Useful Links — 100+ Government & Useful Websites";
+ if(navigator.share){try{await navigator.share({title:text,text,url:location.href});}catch(e){}}
+ else{try{await navigator.clipboard.writeText(location.href);alert("Link copied");}catch(e){alert("Share this page URL from your browser.");}}
+}
+if(localStorage.getItem("sldDark")==="1")document.body.classList.add("dark");
+initChips(); render();
+</script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="te">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>SLD Useful Links | Independent Government & Useful Website Directory</title>
+<meta name="description" content="100+ Government and useful websites in one place. Central Govt, AP Govt, Aadhaar, Jobs, Education, Health, Agriculture, Finance and more.">
+<style>
+:root{--bg:#f5f7fb;--card:#fff;--text:#142033;--muted:#6b7280;--primary:#0b5db7;--accent:#11875d;--border:#e6eaf0;--shadow:0 9px 30px rgba(15,23,42,.08)}
+body.dark{--bg:#0d1420;--card:#151f2d;--text:#f5f7fb;--muted:#a7b1c2;--primary:#58a6ff;--accent:#43d19e;--border:#283548;--shadow:0 9px 30px rgba(0,0,0,.25)}
+*{box-sizing:border-box} body{margin:0;font-family:Arial,"Noto Sans Telugu",sans-serif;background:var(--bg);color:var(--text);transition:.2s}
+.hero{background:linear-gradient(135deg,#073b73,#0f8462);color:#fff;padding:30px 16px 52px;text-align:center}
+.hero h1{margin:0 0 8px;font-size:30px} .hero p{margin:0;opacity:.92;line-height:1.5}
+.wrap{max-width:1180px;margin:auto;padding:0 14px 30px}
+.toolbar{margin-top:-27px;background:var(--card);border:1px solid var(--border);box-shadow:var(--shadow);border-radius:18px;padding:12px;display:grid;grid-template-columns:1fr auto auto;gap:8px;position:sticky;top:8px;z-index:10}
+.search{width:100%;padding:14px;border-radius:12px;border:1px solid var(--border);background:var(--bg);color:var(--text);font-size:16px;outline:none}
+.iconbtn{border:1px solid var(--border);background:var(--card);color:var(--text);border-radius:12px;padding:0 13px;font-size:18px;cursor:pointer}
+.stats{display:flex;justify-content:space-between;gap:12px;align-items:center;margin:16px 2px 10px;color:var(--muted);font-size:13px}
+.chips{display:flex;gap:8px;overflow:auto;padding:4px 0 12px;scrollbar-width:none}
+.chip{white-space:nowrap;border:1px solid var(--border);background:var(--card);color:var(--text);padding:9px 13px;border-radius:999px;cursor:pointer;font-weight:700}
+.chip.active{background:var(--primary);color:white;border-color:var(--primary)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(235px,1fr));gap:13px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:16px;box-shadow:var(--shadow);display:flex;flex-direction:column;min-height:205px}
+.top{display:flex;gap:11px;align-items:flex-start} .emoji{font-size:31px;background:var(--bg);border-radius:12px;padding:7px}
+.card h3{font-size:17px;margin:2px 0 4px} .te{font-size:13px;color:var(--muted);line-height:1.4}
+.badge{display:inline-block;margin-top:12px;font-size:11px;font-weight:bold;color:var(--accent)} 
+.card a{margin-top:auto;text-decoration:none;background:var(--primary);color:white;text-align:center;padding:11px;border-radius:10px;font-weight:bold}
+.empty{display:none;text-align:center;padding:40px;color:var(--muted)}
+.notice,.ad{margin-top:18px;border:1px solid var(--border);background:var(--card);border-radius:14px;padding:14px;line-height:1.55;font-size:13px}
+.ad{text-align:center;border-style:dashed;color:var(--muted)}
+footer{text-align:center;color:var(--muted);padding:22px 12px 36px;font-size:12px}
+.lang-en .te-only{display:none} .lang-te .en-only{display:none}
+@media(max-width:620px){.toolbar{grid-template-columns:1fr auto auto}.hero h1{font-size:25px}.grid{grid-template-columns:1fr 1fr}.card{min-height:220px;padding:13px}}
+@media(max-width:430px){.grid{grid-template-columns:1fr}.card{min-height:190px}}
+</style>
+</head>
+<body class="lang-te">
+<div style="background:#001a3a;color:white;text-align:center;padding:9px 12px;font-weight:700;font-size:13px;">
+Independent Useful Links Directory • Not a Government Website
+</div>
+
+<section class="hero">
   <h1>SLD Useful Links</h1>
   <p class="te-only">100+ ప్రభుత్వ & ఉపయోగకరమైన వెబ్‌సైట్లు — ఒకే చోట</p>
   <p class="en-only">100+ Government & Useful Websites — One Place</p>
