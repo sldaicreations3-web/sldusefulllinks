@@ -33,6 +33,15 @@ footer{text-align:center;color:var(--muted);padding:22px 12px 36px;font-size:12p
 @media(max-width:620px){.toolbar{grid-template-columns:1fr auto auto}.hero h1{font-size:25px}.grid{grid-template-columns:1fr 1fr}.card{min-height:220px;padding:13px}}
 @media(max-width:430px){.grid{grid-template-columns:1fr}.card{min-height:190px}}
 </style>
+
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#073A79">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+
 </head>
 <body class="lang-te">
 <div style="background:#001a3a;color:white;text-align:center;padding:9px 12px;font-weight:700;font-size:13px;">
@@ -176,5 +185,16 @@ async function sharePage(){
 if(localStorage.getItem("sldDark")==="1")document.body.classList.add("dark");
 initChips(); render();
 </script>
+
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function () {
+    navigator.serviceWorker.register('./service-worker.js').catch(function (err) {
+      console.log('Service worker registration failed:', err);
+    });
+  });
+}
+</script>
+
 </body>
 </html>
